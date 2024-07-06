@@ -1,5 +1,8 @@
 package com.openclassrooms.cardgame.model;
 
+/* 
+ * Create a enum of suits with different values
+ */
 public enum Suit {
     DIAMONDS (1),
     HEARTS (2),

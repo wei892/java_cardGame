@@ -1,5 +1,9 @@
 package com.openclassrooms.cardgame.model;
 
+/*
+ * create a playing card class 
+ * has a playing card constructor and some functions that reutrn the playing card info
+ */
 public class PlayingCard {
     Rank rank;
     Suit suit;
