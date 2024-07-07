@@ -13,6 +13,10 @@ public class Player {
         hand = new Hand();
     }
 
+    public String getName(){
+        return name;
+    }
+
     public void addCardToHand(PlayingCard card){
         hand.addCard(card);
     }

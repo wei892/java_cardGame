@@ -17,7 +17,7 @@ public class Deck {
         cards = new ArrayList<>();
         for (Rank rank : Rank.values()){
             for (Suit suit : Suit.values()){
-                System.out.println("createing card: [" + rank + " OF " + suit + "]");
+                System.out.println("creating card: [" + rank + " OF " + suit + "]");
                 cards.add(new PlayingCard(rank, suit));
             }
         }

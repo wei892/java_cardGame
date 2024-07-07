@@ -1,1 +1,10 @@
-com/openclassrooms/cardgame/Main.class
+com/openclassrooms/cardgame/model/Player.class
+com/openclassrooms/cardgame/model/Suit.class
+com/openclassrooms/cardgame/model/Deck.class
+com/openclassrooms/cardgame/controller/GameController$GameState.class
+com/openclassrooms/cardgame/games/CardGame.class
+com/openclassrooms/cardgame/model/Hand.class
+com/openclassrooms/cardgame/controller/GameController.class
+com/openclassrooms/cardgame/view/View.class
+com/openclassrooms/cardgame/model/Rank.class
+com/openclassrooms/cardgame/model/PlayingCard.class
