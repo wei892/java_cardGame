@@ -2,11 +2,17 @@ package com.openclassrooms.cardgame.controller;
 
 import java.util.ArrayList;
 
+import com.openclassrooms.cardgame.games.GameEvaluator;
 import com.openclassrooms.cardgame.model.Deck;
 import com.openclassrooms.cardgame.model.Player;
 import com.openclassrooms.cardgame.model.PlayingCard;
-import com.openclassrooms.cardgame.view.View;
+import com.openclassrooms.cardgame.view.GameViewable;
 
+/*
+ * our game controller is the closed class
+ * it always walks through the sequence of events that does not change
+ * the open part is the game evaluator interface which will allow for flexibility of implementation so we can easily change the rules of the game
+ */
 public class GameController {
     enum GameState{
         AddingPlayers,
@@ -17,14 +23,18 @@ public class GameController {
     Deck deck;
     ArrayList<Player> players;
     Player winner;
-    View view;
+    GameViewable view;
     GameState gameState;
+    GameEvaluator evaluator;
 
-    public GameController(View view, Deck deck){
+    /*adding a controller class will allow us to implement the type of game rules we need: (highest card vs lowest card)
+    this will allow us to pass in the correct specific implementation*/
+    public GameController(GameViewable view, Deck deck, GameEvaluator evaluator){
         this.view = view;
         this.deck = deck;
         players = new ArrayList<Player>();
         gameState = GameState.AddingPlayers;
+        this.evaluator = evaluator;
         view.setController(this);
     }
 
@@ -78,40 +88,7 @@ public class GameController {
     }
 
     void evaluateWinner(){
-        Player bestPlayer = null;
-        int bestRank = -1;
-        int bestSuit = -1;
-
-        for (Player player : players){
-            boolean newBestPlayer = false;
-
-            if (bestPlayer == null){
-                newBestPlayer = true;
-            }
-            else{
-                PlayingCard card = player.getCard(0);
-                int thisRank = card.getRank().value();
-                if (thisRank >= bestRank){
-                    if (thisRank > bestRank){
-                        newBestPlayer = true;
-                    }
-                    else {
-                        if (card.getSuit().value() > bestSuit){
-                            newBestPlayer = true;
-                        }
-                    }
-                }
-            }
-
-            if (newBestPlayer){
-                bestPlayer = player;
-                PlayingCard card = player.getCard(0);
-                bestRank = card.getRank().value();
-                bestSuit = card.getSuit().value();
-            }
-        }
-
-        winner = bestPlayer;
+        winner = evaluator.evaluateWinner(players);
     }
 
     void displayerWinner(){

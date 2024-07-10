@@ -4,6 +4,7 @@ package com.openclassrooms.cardgame.model;
  * ceate an anum of ranks that'll return its values
  */
 public enum Rank {
+    NONE (0),
     TWO (2),
     THREE (3),
     FOUR (4),

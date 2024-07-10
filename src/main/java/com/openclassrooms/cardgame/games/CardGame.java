@@ -2,11 +2,13 @@ package com.openclassrooms.cardgame.games;
 
 import com.openclassrooms.cardgame.controller.GameController;
 import com.openclassrooms.cardgame.model.Deck;
-import com.openclassrooms.cardgame.view.View;
+import com.openclassrooms.cardgame.view.CommandLineView;
 
 public class CardGame {
     public static void main(String[] args) {
-        GameController gc = new GameController(new View(), new Deck());
+        GameController gc = new GameController(new CommandLineView(), 
+        new Deck(), 
+        new CommandLineView());
         gc.run();
     }
 }
