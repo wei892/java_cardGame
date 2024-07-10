@@ -20,7 +20,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <mainClass>com.openclassrooms.cardgame.games.CardGame</mainClass>
+                    <mainClass>com.openclassrooms.cardgame.CardGame</mainClass>
                 </configuration>
             </plugin>
         </plugins>
