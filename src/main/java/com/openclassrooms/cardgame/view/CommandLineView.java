@@ -38,7 +38,7 @@ public class CommandLineView implements GameViewable{
         System.out.println("[" + name + "][][]");
     }
 
-    public void showWWinner(String name) {
+    public void showWinner(String name) {
         System.out.println("Winner: " + name +"!");
     }
 

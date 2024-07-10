@@ -97,7 +97,7 @@ public class GameController {
     }
 
     void displayerWinner(){
-        view.showWWinner(winner.getName());
+        view.showWinner(winner.getName());
     }
 
     void rebuildDeck(){

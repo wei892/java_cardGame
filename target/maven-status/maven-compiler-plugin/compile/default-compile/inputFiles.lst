@@ -1,9 +1,14 @@
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/view/GameViewable.java
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/games/LowCardGameEvaluator.java
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/view/GameSwing.java
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/games/GameEvaluator.java
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/view/CommandLineView.java
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/model/Suit.java
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/controller/GameController.java
 /home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/model/Hand.java
 /home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/model/Player.java
 /home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/model/Rank.java
 /home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/model/Deck.java
-/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/view/View.java
 /home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/games/CardGame.java
 /home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/model/PlayingCard.java
-/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/model/Suit.java
-/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/controller/GameController.java
+/home/daedalus/Documents/Projects/JavaProject/oc-solid_cardgame/cardgame/src/main/java/com/openclassrooms/cardgame/games/HighCardGameEvaluator.java
