@@ -87,6 +87,11 @@ public class GameController {
         gameState = GameState.WinnersRevealed;
     }
 
+    public void restartGame(){
+        rebuildDeck();
+        gameState = GameState.AddingPlayers;
+    }
+
     void evaluateWinner(){
         winner = evaluator.evaluateWinner(players);
     }

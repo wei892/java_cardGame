@@ -8,7 +8,7 @@ public class CardGame {
     public static void main(String[] args) {
         GameController gc = new GameController(new CommandLineView(), 
         new Deck(), 
-        new CommandLineView());
+        new HighCardGameEvaluator());
         gc.run();
     }
 }
