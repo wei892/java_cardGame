@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 import com.openclassrooms.cardgame.games.GameEvaluator;
 import com.openclassrooms.cardgame.model.Deck;
+import com.openclassrooms.cardgame.model.IPlayer;
 import com.openclassrooms.cardgame.model.Player;
 import com.openclassrooms.cardgame.model.PlayingCard;
+import com.openclassrooms.cardgame.model.WinningPlayer;
 import com.openclassrooms.cardgame.view.GameViewable;
 
 /*
@@ -21,8 +23,8 @@ public class GameController {
     }
 
     Deck deck;
-    ArrayList<Player> players;
-    Player winner;
+    ArrayList<IPlayer> players;
+    IPlayer winner;
     GameViewable view;
     GameState gameState;
     GameEvaluator evaluator;
@@ -32,7 +34,7 @@ public class GameController {
     public GameController(GameViewable view, Deck deck, GameEvaluator evaluator){
         this.view = view;
         this.deck = deck;
-        players = new ArrayList<Player>();
+        players = new ArrayList<IPlayer>();
         gameState = GameState.AddingPlayers;
         this.evaluator = evaluator;
         view.setController(this);
@@ -65,7 +67,7 @@ public class GameController {
         if (gameState != GameState.CardsDealt){
             deck.shuffle();
             int playerIndex = 1;
-            for (Player player : players){
+            for (IPlayer player : players){
                 player.addCardToHand(deck.removeTopCard());
                 view.showFaceDownCardForPlayer(playerIndex++, player.getName());
             }
@@ -75,7 +77,7 @@ public class GameController {
 
     public void FlipCards(){
         int playerIndex = 1;
-        for (Player player : players) {
+        for (IPlayer player : players) {
             PlayingCard pc = player.getCard(0);
             pc.flip();
             view.showCardForPlayer(playerIndex++, player.getName(), pc.getRank().toString(), pc.getSuit().toString());
@@ -93,7 +95,7 @@ public class GameController {
     }
 
     void evaluateWinner(){
-        winner = evaluator.evaluateWinner(players);
+        winner = new WinningPlayer(evaluator.evaluateWinner(players));
     }
 
     void displayerWinner(){
@@ -101,7 +103,7 @@ public class GameController {
     }
 
     void rebuildDeck(){
-        for (Player player : players){
+        for (IPlayer player : players){
             deck.returnCardToDeck(player.removeCard());
         }
     }

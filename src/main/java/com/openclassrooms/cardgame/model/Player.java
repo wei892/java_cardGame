@@ -1,10 +1,6 @@
 package com.openclassrooms.cardgame.model;
 
-/*
- * Player class contains a name and a hand
- * other than name, player's actions extend from hand class
- */
-public class Player {
+public class Player implements IPlayer{
     String name;
     Hand hand;
 

@@ -1,14 +1,7 @@
 package com.openclassrooms.cardgame.view;
 
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
 import com.openclassrooms.cardgame.controller.GameController;
 
-
-//
 public interface GameViewable {
     public void setController(GameController controller);
 
