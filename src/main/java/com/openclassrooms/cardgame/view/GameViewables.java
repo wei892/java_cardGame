@@ -2,6 +2,7 @@ package com.openclassrooms.cardgame.view;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import com.openclassrooms.cardgame.controller.GameController;
 
@@ -10,10 +11,10 @@ import com.openclassrooms.cardgame.controller.GameController;
  * when this is called, all the views will be iterated and its display will be update
  */
 public class GameViewables implements GameViewable {
-    List <GameViewable> views;
+    Vector<GameViewable> views;
 
     public GameViewables() {
-        views = new ArrayList<GameViewable>();
+        views = new Vector<GameViewable>();
     }
 
     public void addViewable(GameViewable view){

@@ -9,6 +9,7 @@ import com.openclassrooms.cardgame.model.Player;
 import com.openclassrooms.cardgame.model.PlayingCard;
 import com.openclassrooms.cardgame.model.WinningPlayer;
 import com.openclassrooms.cardgame.view.GameViewable;
+import com.openclassrooms.cardgame.view.GameViewables;
 
 /*
  * our game controller is the closed class
@@ -19,38 +20,54 @@ public class GameController {
     enum GameState{
         AddingPlayers,
         CardsDealt,
-        WinnersRevealed;
+        WinnersRevealed, 
+        AddingView;
     }
 
     Deck deck;
     ArrayList<IPlayer> players;
     IPlayer winner;
-    GameViewable view;
+    GameViewables views;
     GameState gameState;
     GameEvaluator evaluator;
 
     /*adding a controller class will allow us to implement the type of game rules we need: (highest card vs lowest card)
     this will allow us to pass in the correct specific implementation*/
     public GameController(GameViewable view, Deck deck, GameEvaluator evaluator){
-        this.view = view;
+        views = new GameViewables();
         this.deck = deck;
+        this.evaluator = evaluator;
         players = new ArrayList<IPlayer>();
         gameState = GameState.AddingPlayers;
-        this.evaluator = evaluator;
-        view.setController(this);
+        addViewable(view);
+    }
+
+    public void addViewable(GameViewable newView){
+        GameState currentState = gameState;
+        gameState = GameState.AddingView;
+        newView.setController(this);
+        views.addViewable(newView);
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        gameState = currentState;
     }
 
     public void run(){
         while(true){
             switch (gameState) {
                 case AddingPlayers:
-                    view.promptForPlayerName();
+                    views.promptForPlayerName();
                     break;
                 case CardsDealt:
-                    view.promptForFlip();
+                    views.promptForFlip();
                     break;
                 case WinnersRevealed:
-                    view.promptForNewGame();
+                    views.promptForNewGame();
+                    break;
+                case AddingView:
                     break;
             }
         }
@@ -59,7 +76,7 @@ public class GameController {
     public void addPlayer(String playerName) {
         if (gameState == GameState.AddingPlayers){
             players.add(new Player(playerName));
-            view.showPlayerName(players.size(), playerName);
+            views.showPlayerName(players.size(), playerName);
         }
     }
 
@@ -69,7 +86,7 @@ public class GameController {
             int playerIndex = 1;
             for (IPlayer player : players){
                 player.addCardToHand(deck.removeTopCard());
-                view.showFaceDownCardForPlayer(playerIndex++, player.getName());
+                views.showFaceDownCardForPlayer(playerIndex++, player.getName());
             }
             gameState = GameState.CardsDealt;
         }
@@ -80,7 +97,7 @@ public class GameController {
         for (IPlayer player : players) {
             PlayingCard pc = player.getCard(0);
             pc.flip();
-            view.showCardForPlayer(playerIndex++, player.getName(), pc.getRank().toString(), pc.getSuit().toString());
+            views.showCardForPlayer(playerIndex++, player.getName(), pc.getRank().toString(), pc.getSuit().toString());
         }
 
         evaluateWinner();
@@ -99,7 +116,7 @@ public class GameController {
     }
 
     void displayerWinner(){
-        view.showWinner(winner.getName());
+        views.showWinner(winner.getName());
     }
 
     void rebuildDeck(){

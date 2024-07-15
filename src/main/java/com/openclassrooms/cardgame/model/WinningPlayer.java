@@ -2,6 +2,7 @@ package com.openclassrooms.cardgame.model;
 
 public class WinningPlayer implements IPlayer{
     IPlayer winner;
+
     public WinningPlayer(IPlayer player){
         winner = player;
     }
@@ -13,16 +14,18 @@ public class WinningPlayer implements IPlayer{
 
     @Override
     public void addCardToHand(PlayingCard card){
-        
+        //not needed
     }
 
     @Override
     public PlayingCard getCard(int index){
-
+        //not needed
+        return null;
     }
 
     @Override
     public PlayingCard removeCard(){
-
+        //not needed
+        return null;
     }
 }
