@@ -1,7 +1,5 @@
 package com.openclassrooms.cardgame.view;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
 import com.openclassrooms.cardgame.controller.GameController;
